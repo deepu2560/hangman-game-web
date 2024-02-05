@@ -1,4 +1,6 @@
-const canvasCreator = () => {
+const canvas = document.getElementById("hangman-canvas")
+
+export const canvasCreator = () => {
     let context = canvas.getContext("2d");
     context.beginPath();
     context.strokeStyle = "#000";
@@ -55,25 +57,25 @@ const canvasCreator = () => {
   };
   
   //draw the man
-  const drawMan = (count) => {
+  export const drawMan = (count) => {
     let { head, body, leftArm, rightArm, leftLeg, rightLeg } = canvasCreator();
     switch (count) {
-      case 1:
+      case 5:
         head();
         break;
-      case 2:
+      case 4:
         body();
         break;
       case 3:
         leftArm();
         break;
-      case 4:
+      case 2:
         rightArm();
         break;
-      case 5:
+      case 1:
         leftLeg();
         break;
-      case 6:
+      case 0:
         rightLeg();
         break;
       default:

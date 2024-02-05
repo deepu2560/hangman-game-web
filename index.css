@@ -3,19 +3,18 @@
     padding: 0;
     transition: all 1s linear;
     font-family: sans-serif;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 body{
     width: 100vw;
-}
-
-h1{
-    width: 100%;
-    text-align: center;
+    background: #393939;
 }
 
 .word-guess-container{
-    border: 1px solid red;
+    background: #f5f5f5;
     width: 50%;
     margin: 10px auto;
     display: flex;
@@ -25,6 +24,7 @@ h1{
     justify-content: center;
     border-radius: 10px;
     overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .word-guess-container span{
@@ -47,7 +47,7 @@ h1{
     position: absolute;
     right: 10px;
     padding: 10px 20px;
-    background-color: white;
+    background-color: #f5f5f5;
     border-radius: 10px;
     text-align: center;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -57,4 +57,169 @@ h1{
     font-size: 5rem;
     width: 100%;
     text-align: center;
+}
+
+.word_onscreen_keyboard{
+    width: 90%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.word_onscreen_keyboard>p{
+    background: #007f5f;
+    color: #f5f5f5;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: none;
+    border: 2px solid #081c15;
+    border-radius: 5px;
+}
+
+.word_onscreen_keyboard>p:hover{
+    background: #d9ed92;
+    color: #081c15;
+}
+
+.word_onscreen_keyboard>p:active{
+    background: #081c15;
+    color: #d9ed92;
+}
+
+#game_over_modal_container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game_over_modal_container>div{
+    width: 60%;
+    padding: 30px 0;
+    border-radius: 20px;
+    border: 2px solid #081c15;
+
+    background: #f5f5f5;
+    text-align: center;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game_over_modal_container>div>h3{
+    font-size: 8em;
+}
+
+#game_over_modal_container>div>p{
+    font-size: 4em;
+}
+
+#game_over_modal_container>div>button{
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    
+    border: 2px solid #081c15;
+    background: #007f5f;
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: none;
+    border-radius: 10px;
+}
+
+#game_over_modal_container>div>button:hover{
+    background: #d9ed92;
+    color: #081c15;
+}
+
+#game_over_modal_container>div>button:active{
+    background: #081c15;
+    color: #d9ed92;
+}
+
+.hangman-canvas-display-container{
+    width: 70%;
+    aspect-ratio: 1/0.4;
+    margin: 20px auto;
+    background: #f5f5f5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.hangman-canvas-display-container>canvas{
+    height: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .word-guess-container{
+        width: 95%;
+    }
+
+    .word-guess-container span{
+        justify-content: space-evenly;
+    }
+    
+    .word-guess-container span>h2{
+        font-size: 5vw;
+    }
+
+    #remaining_lives_display{
+        width: fit-content;
+        position: static;
+        font-size: 3vw;
+    }
+
+    #guessed_letter_display{
+        font-size: 10vw;
+    }
+
+    .word_onscreen_keyboard{
+        width: 95%;
+    }
+
+    .word_onscreen_keyboard>p{
+        font-size: 3vw;
+        padding: 2vw 3vw;
+    }
+
+    #game_over_modal_container>div{
+        width: 80%;
+        gap: 20px;
+    }
+
+    #game_over_modal_container>div>h3{
+        font-size: 6vw;
+    }
+
+    #game_over_modal_container>div>p{
+        font-size: 4vw;
+    }
+
+    #game_over_modal_container>div>button{
+        font-size: 3vw;
+        font-weight: bold;
+        padding: 10px 20px;
+        
+        border: 2px solid #081c15;
+        background: #007f5f;
+        color: #f5f5f5;
+        cursor: pointer;
+        transition: none;
+        border-radius: 10px;
+    }
+
+    .hangman-canvas-display-container{
+        width: 95%;
+        aspect-ratio: 1/0.8;
+    }
 }
